@@ -1,0 +1,23 @@
+<!-- templates/ecommerce/lista_produtos.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Produtos</h1>
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                {{ produto.nome }} - R$ {{ produto.preco }}
+                <a href="{% url 'adicionar_ao_carrinho' produto.id %}">Adicionar ao carrinho</a>
+                {% if produto.imagem %}
+                    <br><img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" width="100">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'cadastrar_produto' %}">Cadastrar Novo Produto</a></p>
+</body>
+</html>

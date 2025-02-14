@@ -13,6 +13,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# loja_virtual/settings.py
+LOGIN_REDIRECT_URL = '/ecommerce/profile/'
+LOGOUT_REDIRECT_URL = '/'
+# loja_virtual/settings.py
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Application definition
 

@@ -1,0 +1,17 @@
+<!-- templates/ecommerce/cadastrar_produto.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Produto</title>
+</head>
+<body>
+    <h2>Cadastrar Produto</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Cadastrar</button>
+    </form>
+    <p><a href="{% url 'lista_produtos' %}">Voltar para a lista de produtos</a></p>
+</body>
+</html>

@@ -39,3 +39,24 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+# ecommerce/views.py
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .forms import ProdutoForm
+@login_required
+def perfil(request):
+    return render(request, 'registration/profile.html')
+# ecommerce/views.py
+from django.shortcuts import render, redirect
+from .forms import ProdutoForm
+
+def cadastrar_produto(request):
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_produtos')
+    else:
+        form = ProdutoForm()
+    return render(request, 'ecommerce/cadastrar_produto.html', {'form': form})

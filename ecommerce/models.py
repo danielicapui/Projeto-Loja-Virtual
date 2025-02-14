@@ -13,7 +13,7 @@ class Produto(models.Model):
     descricao = models.TextField()
     preco = models.DecimalField(max_digits=10, decimal_places=2)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-
+    imagem = models.ImageField(upload_to='produtos/', blank=True, null=True) #opcional
     def __str__(self):
         return self.nome
 class Carrinho(models.Model):
