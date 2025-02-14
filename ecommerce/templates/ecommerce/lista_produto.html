@@ -1,0 +1,17 @@
+<!-- ecommerce/templates/ecommerce/lista_produtos.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Produtos</h1>
+    <ul>
+        {% for produto in produtos %}
+            <li>{{ produto.nome }} - R$ {{ produto.preco }}
+                <a href="{% url 'adicionar_ao_carrinho' produto.id %}">Adicionar ao carrinho</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
